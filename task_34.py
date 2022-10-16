@@ -61,6 +61,8 @@ res_eq = []
 for i in eq_1:
     if '*x' in i:
         a, c = i.split('*x')
+        if c == '':
+            c = 1
         res_eq.append((a, c))
     else:
         res_eq.append((i, 0))
@@ -68,6 +70,8 @@ res_eq_2 = []
 for i in eq_2:
     if '*x' in i:
         a, c = i.split('*x')
+        if c == '':
+            c = 1
         res_eq_2.append((a, c))
     else:
         res_eq_2.append((i, 0))
@@ -77,12 +81,14 @@ add_result = ''
 j = 0
 c = 1
 for i in range(len(result)):
-    add_result += result[i][j]
-    p = '*x^' + str(result[i][c]) + ' + '
-    add_result += p
-    if result[i][c] == 0:
-        add_result += str(result[i][j])
-
+    if result[i][c] == 1:
+        add_result += str(result[i][j]) + '*x'
+    elif result[i][c] == 0:
+        add_result = add_result + ' + ' + str(result[i][j])
+    else:
+        add_result += result[i][j]
+        p = '*x^' + str(result[i][c]) + ' + '
+        add_result += p
 add_result += ' = 0'
 
 with open('result.txt', "w+") as rs:
