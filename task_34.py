@@ -34,13 +34,6 @@ def addpoly(p1, p2):
         elif p1[i][1] < p2[j][1]:
             c.append((p2[j]))
             j = j+1
-    if p1[i:] != []:
-        for k in p1[i:]:
-            c.append(k)
-    if p2[j:] != []:
-        for k in p2[j:]:
-            c.append(k)
-
     return c
 
 
