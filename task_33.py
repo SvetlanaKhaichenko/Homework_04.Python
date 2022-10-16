@@ -60,5 +60,5 @@ for j in range(len(sum_x)):
     else:
         result += str(sum_x[-1]) + ex
 print(result)
-with open('file.txt', "r+", encoding='utf-8') as resfile:
+with open('file.txt', "w+", encoding='utf-8') as resfile:
     resfile.write(result)
